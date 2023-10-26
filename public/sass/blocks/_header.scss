@@ -1,0 +1,294 @@
+//begin header
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+    &__container {
+        @include flexBetween();
+    }
+    &__nav {
+        @include flexStart();
+        .oxygen {
+            display: block;
+            margin-right: 6rem;
+            width: 2.9rem;
+            svg {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                path {
+                    transition: .3s all;
+                }
+            }
+        }
+        .list {
+            @include flexStart();
+            li {
+                margin-right: 3.5rem;
+                position: relative;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    font-family: "Stolzl-R";
+                    font-size: .8rem;
+                    line-height: 110%;
+                    color: var(--main-color-white);
+                    transition: .3s all;
+                    position: relative;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: -1px;
+                        width: 0;
+                        height: 1px;
+                        transition: 0.3s ease-in-out;
+                        left: 0;
+                        background-color: var(--main-color-white);
+                    }
+                }
+                &:hover {
+                    a {
+                        color: var(--main-color-white);
+                        &:before {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__right {
+        @include flexEnd();
+        .languages {
+            margin-right: 3rem;
+            cursor: pointer;
+            &__box {
+                @include flexStart();
+                span {
+                    font-size: .9rem;
+                    color: var(--main-color-white);
+                    display: inline-block;
+                    margin-right: .4rem;
+                }
+                svg {
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .calls {
+            @include flexEnd();
+            svg {
+                display: block;
+                max-width: 1.9rem;
+                height: auto;
+                margin-right: .8rem;
+                path, circle {
+                    transition: .3s all;
+                }
+            }
+            span {
+                display: inline-block;
+                color: var(--main-color-white);
+                transition: .3s all;
+            }
+        }
+    }
+    &__dark {
+        transition: .3s all;
+        background-color: var(--main-color-white);
+        .header {
+            &__nav {
+                .oxygen {
+                    svg {
+                        path {
+                            &:first-child, &:last-child {
+                                fill: var(--main-color-birch);
+                            }
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                fill: var(--main-color-black-blue);
+                            }
+                        }
+                    }
+                }
+                .list {
+                    li {
+                        a {
+                            color: var(--main-color-black-blue);
+                            &:before {
+                                background-color: var(--main-color-birch);
+                            }
+                        }
+                    }
+                }
+            }
+            &__right {
+                .languages {
+                    &__box {
+                        span {
+                            color: var(--main-color-birch);
+                        }
+                        svg {
+                            path {
+                                stroke: var(--main-color-birch);
+                            }
+                        }
+                    }
+                }
+                .calls {
+                    svg {
+                        circle {
+                            fill: var(--main-color-birch);
+                        }
+                        path {
+                            fill: var(--main-color-white);
+                        }
+                    }
+                    span {
+                        color: var(--main-color-black-blue);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900.98px) {
+    .header {
+        z-index: 100;
+        padding: 2.4rem 0;
+        &__desc {
+            display: none;
+        }
+        &__mob {
+            @include flexBetween();
+            padding: 0 2.4rem;
+            .oxygen {
+                height: 5.2rem;
+                svg {
+                    display: block;
+                    height: 100%;
+                    width: auto;
+                    path {
+                        transition: .3s all;
+                    }
+                }
+            }
+            .btns {
+                @include flexEnd();
+                .callback {
+                    display: block;
+                    height: 4.4rem;
+                    margin-right: 3.2rem;
+                    svg {
+                        display: block;
+                        height: 100%;
+                        width: auto;
+                        circle, path {
+                            transition: .3s all;
+                        }
+                    }
+                }
+                .mnu {
+                    display: block;
+                    border: none;
+                    background-color: transparent;
+                    padding: 0;
+                    height: 1.6rem;
+                    svg {
+                        display: block;
+                        height: 100%;
+                        width: auto;
+                        path {
+                            transition: .3s all;
+                        }
+                    }
+                }
+            }
+        }
+        &__dark {
+            background-color: var(--main-color-white);
+            .header {
+                &__mob {
+                    .oxygen {
+                        svg {
+                            path {
+                                &:first-child, &:last-child {
+                                    fill: var(--main-color-birch);
+                                }
+                                &:nth-child(2),
+                                &:nth-child(3) {
+                                    fill: var(--main-color-black-blue);
+                                }
+                            }
+                        }
+                    }
+                    .btns {
+                        .callback {
+                            circle {
+                                fill: var(--main-color-birch);
+                                fill-opacity: 1;
+                            }
+                        }
+                        .mnu {
+                            svg {
+                                path {
+                                    fill: var(--main-color-black-blue);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--main-color-white);
+        overflow: auto;
+        z-index: 99;
+        padding: 0 2.4rem;
+        padding-top: 15rem;
+        .list {
+            li {
+                margin-bottom: 4rem;
+                position: relative;
+                &:before {
+                    position: absolute;
+                    content: '';
+                    width: 1rem;
+                    height: 1rem;
+                    left: 0;
+                    top: 50%;
+                    background-color: var(--main-color-birch);
+                    transition: 0.2s ease-in-out;
+                    transform: rotate(45deg) translateY(-50%) scale(0);
+                }
+                &.active {
+                    padding-left: 3rem;
+                    &:before {
+                        transform: rotate(45deg) translateY(-50%) scale(1);
+                    }
+                }
+                a {
+                    font-family: "Stolzl-R";
+                    font-size: 4rem;
+                    color: var(--main-color-black);
+                }
+            }
+        }
+    }
+}
+//end header
